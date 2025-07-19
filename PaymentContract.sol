@@ -86,7 +86,7 @@ contract PaymentContract is ReentrancyGuard {
 
     /// @dev 注册用户逻辑
     function _handleRegister(IDatabase db, address user) internal {
-        require(msg.data.length >= 8, "Invalid referrer code"); // uint64 = 8字节
+        require(msg.data.length >= 6, "Invalid referrer code");
         bytes8 asciiData;
         assembly {
             asciiData := calldataload(0)
